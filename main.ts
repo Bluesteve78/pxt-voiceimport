@@ -2,8 +2,7 @@ namespace voiceimport {
     //% block
     export function playImportedAudio(name: string): void {
         const audioFiles: { [key: string]: string } = {
-            "infinite1": "https://bluesteve78.github.io/sonic-forces-voices/audio/infinite_voice1.mp3",
-            "sonic1": "https://bluesteve78.github.io/sonic-forces-voices/audio/sonic_woohoo.mp3"
+            "https://github.com/Bluesteve78/Sonic-sayingInfinite"
         };
 
         const url = audioFiles[name];
