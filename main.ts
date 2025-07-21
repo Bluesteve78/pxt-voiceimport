@@ -1,14 +1,18 @@
 namespace voiceimport {
     //% block
     export function playImportedAudio(name: string): void {
-        const audioFiles: { [key: string]: string } = {
-            "https://github.com/Bluesteve78/Sonic-sayingInfinite"
-        };
+        let url = "";
 
-        const url = audioFiles[name];
-        if (!url) return;
+        if (name == "infinite1") {
+            url = "https://bluesteve78.github.io/sonic-forces-voices/audio/infinite_voice1.mp3";
+        } else if (name == "sonic1") {
+            url = "https://bluesteve78.github.io/sonic-forces-voices/audio/sonic_woohoo.mp3";
+        }
 
-        // Only runs in web browser (not on hardware)
+        if (url == "") return;
+
+        // Only works in web browser
+        //% shim=KIND_OF_HACK
         // @ts-ignore
         if (typeof window !== "undefined") {
             // @ts-ignore
