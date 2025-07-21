@@ -9,13 +9,12 @@ namespace voiceimport {
         const url = audioFiles[name];
         if (!url) return;
 
-        // Only runs in the web version of MakeCode Arcade
+        // Only runs in web browser (not on hardware)
         // @ts-ignore
         if (typeof window !== "undefined") {
             // @ts-ignore
             const audio = new window.Audio(url);
-            audio.play().catch((e: any) => console.log("Playback error", e));
+            audio.play().catch((e: any) => console.log("Playback error: " + e));
         }
     }
 }
-
