@@ -1,0 +1,26 @@
+{
+  "name": "pxt-voiceimport",
+  "version": "0.0.1",
+  "description": "Extension to play imported audio files in MakeCode Arcade web projects",
+  "files": [
+    "README.md",
+    "main.ts"
+  ],
+  "public": true,
+  "dependencies": {},
+  "namespace": "voiceimport",
+  "blocks": [
+    {
+      "opcode": "playImportedAudio",
+      "blockType": "command",
+      "block": "play imported audio %filename",
+      "arguments": {
+        "filename": {
+          "type": "string",
+          "defaultValue": "voice1.mp3"
+        }
+      }
+    }
+  ],
+  "supportedTargets": ["arcade"]
+}
