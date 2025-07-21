@@ -1,24 +1,17 @@
-//% color=#AA00FF icon="\uf028" block="Voice Import"
 namespace voiceimport {
+    //% block
+    export function playImportedAudio(name: string) {
+        const audioFiles: { [key: string]: string } = {
+            "https://github.com/Bluesteve78/Sonic-sayingInfinite"
 
-    // Map file names to URLs (simulate import)
-    const audioFiles: { [key: string]: string } = {
-        "voice1.mp3": "https://example.com/audio/voice1.mp3",
-        "voice2.mp3": "https://example.com/audio/voice2.mp3"
-        // Add your hosted audio URLs here
-    }
+        const url = audioFiles[name];
+        if (!url) return;
 
-    //% block="play imported audio %filename"
-    export function playImportedAudio(filename: string): void {
-        let url = audioFiles[filename]
-        if (!url) {
-            console.warn(`Audio file '${filename}' not found.`)
-            return
+        // @ts-ignore
+        if (typeof window !== "undefined") {
+            // @ts-ignore
+            const audio = new window.Audio(url);
+            audio.play().catch(e => console.log("Playback error", e));
         }
-        // Create HTML audio element and play
-        let audio = new Audio(url)
-        audio.play().catch(e => {
-            console.warn(`Failed to play audio: ${e}`)
-        })
     }
 }
